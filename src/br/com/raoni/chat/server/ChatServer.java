@@ -22,6 +22,7 @@ public class ChatServer {
                System.out.println(mensagemRecebida);
 
                if (mensagemRecebida.equals("/sair")){
+                   client.close();
                    break;
                }
 

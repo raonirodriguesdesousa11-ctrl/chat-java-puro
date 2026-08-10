@@ -18,25 +18,20 @@ public class ChatClient {
             while (true){
                 String msg = scanner.nextLine();
 
-                if (msg.equals("/sair")){
-                    break;
-                }
-
                 output.write(msg);
                 output.newLine();
                 output.flush();
+
+                if (msg.equals("/sair")){
+                    socket.close();
+                    break;
+                }
             }
-
-
-
 
         }catch (Exception e){
             System.out.println("erro:" + e.getMessage());
         }
 
-
     }
-
-
 
 }
