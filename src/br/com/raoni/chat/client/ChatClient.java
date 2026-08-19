@@ -16,6 +16,9 @@ public class ChatClient {
             Scanner scanner = new Scanner(System.in);
 
             while (true){
+                String mensagemRecebida = input.readLine();
+                System.out.println(mensagemRecebida);
+
                 String msg = scanner.nextLine();
 
                 output.write(msg);
