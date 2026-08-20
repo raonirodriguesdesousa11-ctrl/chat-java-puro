@@ -11,11 +11,13 @@ public class ChatServer {
            ServerSocket server = new ServerSocket(12345);
            System.out.println("servidor escutando na porta 12345");
 
-               Socket client = server.accept();
-               System.out.println("Cliente conectado: " + client.getInetAddress().getHostAddress() + " (" + client.getInetAddress().getHostName() + ")");
+              while (true){
+                  Socket client = server.accept();
+                  System.out.println("Cliente conectado: " + client.getInetAddress().getHostAddress() + " (" + client.getInetAddress().getHostName() + ")");
 
-               ClientHandler clientHandler = new ClientHandler(client);
-               clientHandler.run();
+                  ClientHandler clientHandler = new ClientHandler(client);
+                  clientHandler.run();
+              }
 
        }
        catch (Exception e){
