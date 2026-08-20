@@ -27,18 +27,23 @@ public class ClientHandler implements Runnable{
             output.newLine();
             output.flush();
             name = input.readLine();
-            output.write("atendente: olá, " + name);
+            output.write("atendente: olá, " + name + ". como posso ajudar?");
             output.newLine();
             output.flush();
 
-            while(input.readLine() != null){
+            while(true){
                 String menssagemRecebida = input.readLine();
-                System.out.println(menssagemRecebida);
+                System.out.println(name + ": " +menssagemRecebida);
 
                 String mensagem = scanner.nextLine();
                 output.write("atendente:" + mensagem);
                 output.newLine();
                 output.flush();
+
+                if (menssagemRecebida.equals("/sair")){
+                    socket.close();
+                    break;
+                }
             }
 
 
