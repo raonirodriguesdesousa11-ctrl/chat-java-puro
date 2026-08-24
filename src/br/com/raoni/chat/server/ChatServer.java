@@ -16,7 +16,7 @@ public class ChatServer {
                   System.out.println("Cliente conectado: " + client.getInetAddress().getHostAddress() + " (" + client.getInetAddress().getHostName() + ")");
 
                   ClientHandler clientHandler = new ClientHandler(client);
-                  clientHandler.run();
+                  new Thread(clientHandler).start();
               }
 
        }
